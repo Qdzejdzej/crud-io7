@@ -5,7 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule }     from '@angular/forms';
 import { MatButtonModule,
   MatInputModule,
-  MatListModule } from '@angular/material';
+  MatListModule,
+  MatTableModule,
+  MatPaginatorModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }     from './app.component';
@@ -22,6 +24,8 @@ import { ApiService }       from './api.service'
     MatInputModule,
     MatButtonModule,
     MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],

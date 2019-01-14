@@ -10,6 +10,11 @@ productsRoutes.route('/').get(function(req, res) {
   })
 });
 
+productsRoutes.route('/delete/:id').delete(function(req, res) {
+  Product.findByIdAndRemove(req.params.id).then(() => {
+    res.status(200).json('product removed');
+  })
+});
 
 productsRoutes.route('/add').post(function(req, res) {
   let product = new Product(req.body);

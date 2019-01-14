@@ -11,11 +11,15 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllProducts(): Observable<Product> {
-    return this.http.get<Product>(this._url);
+  public getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this._url);
   }
 
   public addProduct(obj: Product): Observable<any> {
     return this.http.post(`${this._url}/add`, obj);
+  }
+
+  public removeProduct(product: Product): Observable<any> {
+    return this.http.delete(`${this._url}/delete/${product._id}`);
   }
 }
