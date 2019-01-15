@@ -11,11 +11,23 @@ import { MatButtonModule,
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }     from './app.component';
-import { ApiService }       from './api.service'
+import { ApiService }       from './api.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { ShowAllComponent } from './show-all/show-all.component';
+import { FormProductComponent } from './form-product/form-product.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { EditProductComponent } from './edit-product/edit-product.component'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    ShowAllComponent,
+    FormProductComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
