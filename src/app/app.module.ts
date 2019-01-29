@@ -7,7 +7,8 @@ import { MatButtonModule,
   MatInputModule,
   MatListModule,
   MatTableModule,
-  MatPaginatorModule } from '@angular/material';
+  MatPaginatorModule,
+  MatSnackBarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }     from './app.component';
@@ -38,6 +39,7 @@ import { EditProductComponent } from './edit-product/edit-product.component'
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],

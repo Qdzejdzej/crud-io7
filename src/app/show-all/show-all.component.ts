@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { ApiService } from '../api.service';
 import { Product } from '../../model/Product';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'qjj-show-all',
@@ -15,7 +16,8 @@ export class ShowAllComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getProducts();
@@ -33,7 +35,10 @@ export class ShowAllComponent implements OnInit {
 
   public removeProduct(element: Product): void {
     this.api.removeProduct(element).subscribe(res => {
-      this.getProducts();
+      if (res.status === 200) {
+        this.snackBar.open(res.message, 'OK', { duration: 5000 });
+        this.getProducts();
+      }
     });
   }
 

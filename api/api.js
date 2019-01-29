@@ -8,7 +8,10 @@ const DB = 'mongodb://localhost:27017/crud';
 const productsRoute = require('./routes');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(DB, { useNewUrlParser: true }).then(
+mongoose.connect(DB, {
+  useFindAndModify: false,
+  useNewUrlParser: true
+}).then(
   () => {console.log('Database is connected') },
   err => { console.log('Can not connect to the database'+ err)}
 );

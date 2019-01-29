@@ -18,20 +18,29 @@ productsRoutes.route('/product/:id').get(function(req, res) {
 
 productsRoutes.route('/product/update/:id').put(function(req, res) {
   Product.findByIdAndUpdate(req.params.id, req.body).then(() => {
-    res.status(200).json('product updated');
+    res.status(200).json({
+      status: 200,
+      message: 'Product updated!'
+    });
   })
 });
 
 productsRoutes.route('/product/delete/:id').delete(function(req, res) {
   Product.findByIdAndRemove(req.params.id).then(() => {
-    res.status(200).json('product removed');
+    res.status(200).json({
+      status: 200,
+      message: 'Product removed!'
+    });
   })
 });
 
 productsRoutes.route('/product/add').post(function(req, res) {
   let product = new Product(req.body);
   product.save().then(() => {
-    res.status(200).json('product added');
+    res.status(200).json({
+      status: 200,
+      message: 'Product added!'
+    });
   })
 });
 

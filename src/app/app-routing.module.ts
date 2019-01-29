@@ -18,6 +18,14 @@ const routes: Routes = [
   },{
     path: 'product/edit/:id',
     component: EditProductComponent
+  },{
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },{
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full' 
   }
 ];
 

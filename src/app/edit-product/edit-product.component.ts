@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../model/Product';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'qjj-edit-product',
@@ -17,7 +19,9 @@ export class EditProductComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute,
               private api: ApiService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private router: Router,
+              private snackBar: MatSnackBar) {
     this.form = fb.group({
       name: []
     });
@@ -36,7 +40,10 @@ export class EditProductComponent implements OnInit, OnDestroy {
 
   public updateProduct(): void {
     this.api.updateProduct(this.form.value, this.productID).subscribe(res => {
-      console.log('ok');
+      if(res.status === 200) {
+        this.snackBar.open(res.message, 'OK', { duration: 5000 });
+        this.router.navigate(['/showAll']);
+      }
     })
   }
 
