@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ShowAllComponent } from './show-all/show-all.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 const routes: Routes = [
   {
@@ -24,8 +25,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },{
     path: '**',
-    redirectTo: 'home',
-    pathMatch: 'full' 
+    component: NotFoundComponent
   }
 ];
 

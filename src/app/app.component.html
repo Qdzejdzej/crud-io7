@@ -1,12 +1,13 @@
 <qjj-navbar></qjj-navbar>
 
-<!-- 
+<!--
   <button mat-raised-button color="primary" (click)="getProducts()">
     Refresh <i class="material-icons">cached</i>
   </button>
 </div>
 
 -->
+<mat-progress-bar *ngIf="isLoading" color="primary" mode="indeterminate"></mat-progress-bar>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

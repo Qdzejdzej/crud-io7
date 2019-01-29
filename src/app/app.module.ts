@@ -8,8 +8,9 @@ import { MatButtonModule,
   MatListModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSnackBarModule } from '@angular/material';
-
+  MatSnackBarModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent }     from './app.component';
 import { ApiService }       from './api.service';
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
 import { ShowAllComponent } from './show-all/show-all.component';
 import { FormProductComponent } from './form-product/form-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
-import { EditProductComponent } from './edit-product/edit-product.component'
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { NotFoundComponent } from './not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { EditProductComponent } from './edit-product/edit-product.component'
     ShowAllComponent,
     FormProductComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,8 @@ import { EditProductComponent } from './edit-product/edit-product.component'
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

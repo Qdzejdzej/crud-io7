@@ -3,6 +3,7 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { ApiService } from '../api.service';
 import { Product } from '../../model/Product';
 import { MatSnackBar } from '@angular/material';
+import { tap, finalize, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'qjj-show-all',
@@ -13,6 +14,7 @@ export class ShowAllComponent implements OnInit {
   public listProducts: Product[];
   public displayedColumns: string[] = ['id', 'name', 'actions'];
   public dataSource: MatTableDataSource<Product>;
+  public isLoading = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -24,7 +26,12 @@ export class ShowAllComponent implements OnInit {
   }
 
   public getProducts(): void {
-    this.api.getAllProducts().subscribe((res: Product[]) => {
+    this.api.getAllProducts().pipe(
+      tap(() => this.isLoading = true),
+      delay(2000),
+      finalize(() => this.isLoading = false)
+    )
+    .subscribe((res: Product[]) => {
       this.listProducts = res;
       this.dataSource = new MatTableDataSource<Product>(this.listProducts);
       setTimeout(() => {
@@ -36,7 +43,7 @@ export class ShowAllComponent implements OnInit {
   public removeProduct(element: Product): void {
     this.api.removeProduct(element).subscribe(res => {
       if (res.status === 200) {
-        this.snackBar.open(res.message, 'OK', { duration: 5000 });
+        this.snackBar.open(res.message, 'OK', { duration: 2500 });
         this.getProducts();
       }
     });

@@ -1,4 +1,5 @@
-<div class="mat-elevation-z8" *ngIf="this.listProducts">
+<mat-progress-spinner *ngIf="isLoading" color="primary" mode="indeterminate" style="margin: 0 auto;"></mat-progress-spinner>
+<div [hidden]="isLoading" class="mat-elevation-z8" *ngIf="this.listProducts">
   <table mat-table [dataSource]="dataSource" style="width: 100%;">
 
     <ng-container matColumnDef="id">
