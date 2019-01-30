@@ -9,8 +9,8 @@ import { Product } from '../../model/Product';
   styleUrls: ['./form-product.component.scss']
 })
 export class FormProductComponent implements OnInit {
-  @Input() btnName: string;
-  @Input() form: FormGroup;
+  @Input() btnName?: string;
+  @Input() form?: FormGroup;
   @Output() action = new EventEmitter();
 
   constructor() { }

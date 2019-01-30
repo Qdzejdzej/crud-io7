@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { ApiService } from '../api.service';
 import { Product } from '../../model/Product';
-import { MatSnackBar } from '@angular/material';
 import { tap, finalize, delay } from 'rxjs/operators';
 
 @Component({
